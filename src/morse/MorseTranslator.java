@@ -58,4 +58,17 @@ public class MorseTranslator {
             result +=morse;
         }return result;
     }
+    public String MorseToText(String mores){
+        String result="";
+        String[] parts=mores.trim().split("");
+        for (String code:parts){
+            Character letter=MORSE_TO_TEXT.get(code);
+            if (letter == null){
+                return "Fel:okänd morsekod"+code+" ' ";
+            }
+            result+=letter;
+        }
+        return result;
+
+    }
 }
