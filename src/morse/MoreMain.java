@@ -2,7 +2,7 @@ package morse;
 
 import java.util.Scanner;
 
-public class MoreApp {
+public class MoreMain {
     public static void main(String[] args) {
         Scanner scan=new Scanner(System.in);
         MorseTranslator translator=new MorseTranslator();
