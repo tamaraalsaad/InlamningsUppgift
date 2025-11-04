@@ -12,19 +12,21 @@ public class MoreApp {
         System.out.println("Välj(1 eler 2)");
         String val=scan.nextLine();
         try {
-            if (val.equals("1")){
+            if (val.equals("1")) {
                 System.out.println("Skriv in text(A-z):");
-                String text=scan.nextLine();
-                String mores=translator.textToMorse(text);
-                System.out.println("Morsekod:" +mores);
-            }else if (val.equals("2")){
+                String text = scan.nextLine();
+                String mores = translator.textToMorse(text);
+                System.out.println("Morsekod:" + mores);
+            } else if (val.equals("2")) {
                 System.out.println("Skriva in morsekod(separera bokstäver med mellanslag ):");
-                String mores=scan.nextLine();
-                String text=translator.MorseToText(mores);
-                System.out.println("Text:"+text);
-            }else {
+                String mores = scan.nextLine();
+                String text = translator.MorseToText(mores);
+                System.out.println("Text:" + text);
+            } else {
                 System.out.println("Fel : Du måsta välja 1 eller 2");
             }
+        } catch (IllegalArgumentException ill){//
+            System.out.println("Ett fel uppstod:"+ill.getMessage());
 
         } catch (Exception e) {
             System.out.println("Ett fel uppstod :"+ e.getMessage());
