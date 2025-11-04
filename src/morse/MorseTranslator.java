@@ -59,15 +59,27 @@ public class MorseTranslator {
         }return result;
     }
     public String MorseToText(String mores){
-        String result="";
-        String[] parts=mores.trim().split("");
-        for (String code:parts){
-            Character letter=MORSE_TO_TEXT.get(code);
-            if (letter == null){
-                return "Fel:okänd morsekod"+code+" ' ";
+        if (mores == null) return "Fel: Okänd morsekod ''";
+        mores = mores.trim();
+        if (mores.isEmpty()) return "Fel: Okänd morsekod ''";
+        String result = "";
+        String[] parts = mores.split("\\s+");
+
+        for (String code : parts) {
+            for (int i = 0; i < code.length(); i++) {
+                char ch = code.charAt(i);
+                if (ch != '.' && ch != '-') {
+                    return "Fel: Okänd morsekod '" + code + "'";
+                }
             }
-            result+=letter;
+
+            Character letter = MORSE_TO_TEXT.get(code);
+            if (letter == null) {
+                return "Fel: Okänd morsekod '" + code + "'";
+            }
+            result += letter;
         }
+
         return result;
 
     }

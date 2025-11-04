@@ -13,7 +13,7 @@ public class MoreApp {
         String val=scan.nextLine();
         try {
             if (val.equals("1")) {
-                System.out.println("Skriv in text(A-z):");
+                System.out.println("Skriv in text(A-Z):");
                 String text = scan.nextLine();
                 String mores = translator.textToMorse(text);
                 System.out.println("Morsekod:" + mores);
