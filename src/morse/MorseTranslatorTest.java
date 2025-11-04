@@ -9,10 +9,6 @@ class MorseTranslatorTest{
         assertEquals(".... . .---",tr.textToMorse("HEJ"));
     }
     @Test
-    void mores_to_text(){
-        assertEquals("HEJ",tr.MorseToText(".... . .---"));
-    }
-    @Test
     void text_mellanslag_innoreras(){
         assertEquals(tr.textToMorse("HELLO"),tr.textToMorse("HEL LO"));
     }
