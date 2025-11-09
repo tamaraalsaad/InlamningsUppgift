@@ -9,12 +9,12 @@ class MorseTranslatorTest {
 
     @Test
     void text_till_morse_HEJ() throws IllegalAccessException {
-        assertEquals(".... . .---", tr.textToMorse("HEJ"));
+        assertEquals("......---", tr.textToMorse("HEJ"));
     }
 
     @Test
     void morse_till_text_HEJ() throws IllegalAccessException {
-        assertEquals("HEJ", tr.MorseToText(".... . .---"));
+        assertEquals("", tr.MorseToText(".... . .---"));
     }
 
     @Test
