@@ -25,7 +25,7 @@ public class MorseMain {
             } else {
                 System.out.println("Fel : Du måsta välja 1 eller 2");
             }
-        } catch (IllegalArgumentException ill){//
+        } catch (IllegalArgumentException ill){
             System.out.println("Ett fel uppstod:"+ill.getMessage());
 
         } catch (Exception e) {

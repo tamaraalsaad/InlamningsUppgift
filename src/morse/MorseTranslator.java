@@ -2,6 +2,7 @@ package morse;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class MorseTranslator {
     private static final Map<Character, String> TEXT_To_MORSE = new HashMap<>();
@@ -42,45 +43,60 @@ public class MorseTranslator {
 
     }
 
-    public String textToMorse(String text) {
-        String result = "";
+    public String textToMorse(String text) throws IllegalAccessException {
+        if (text == null || text.isEmpty()) {
+            throw new IllegalAccessException("Du måste skriva in minst ett tecken!");
+        }
         text = text.toUpperCase();
+        String result="";
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
             if (c == ' ') continue;
-            String morse = TEXT_To_MORSE.get(c);
-            if (morse == null) {
-                return "Fel: Endast bokstäver A-Z ";
-            }
-            if (!result.isEmpty()) {
-                result += " ";
-            }
-            result +=morse;
-        }return result;
-    }
-    public String MorseToText(String mores){
-        if (mores == null) return "Fel: Okänd morsekod ''";
-        mores = mores.trim();
-        if (mores.isEmpty()) return "Fel: Okänd morsekod ''";
-        String result = "";
-        String[] parts = mores.split("\\s+");
-
-        for (String code : parts) {
-            for (int i = 0; i < code.length(); i++) {
-                char ch = code.charAt(i);
-                if (ch != '.' && ch != '-') {
-                    return "Fel: Okänd morsekod '" + code + "'";
-                }
+            String code = TEXT_To_MORSE.get(c);
+            if (code == null) {
+                throw new IllegalAccessException("Endast bokstäver A–Z är tillåtna!");
             }
 
-            Character letter = MORSE_TO_TEXT.get(code);
-            if (letter == null) {
-                return "Fel: Okänd morsekod '" + code + "'";
-            }
-            result += letter;
+
+            if (! result.isEmpty())result+="";
+            result+=code;
+
         }
-
         return result;
 
     }
+
+
+    public String morseToText(String morse) throws IllegalAccessException {
+        if (morse == null || morse.trim().isEmpty()) {
+            throw new IllegalArgumentException("Du måste skriva in minst ett morsetecken!");
+
+        }
+        morse = morse.trim();
+        String[] parts = morse.split("\\s+");
+        String text = "";
+        for (String code : parts) {
+            for (char ch : code.toCharArray())
+                if (ch != '.' && ch != '-') {
+
+                    throw new IllegalArgumentException("Morse får bara innehålla punkt (.) och streck (-)!");
+                }
+
+
+            Character letter = MORSE_TO_TEXT.get(code);
+            if (letter == null) {
+                throw new IllegalArgumentException("Okäna morsekod" + code);
+            }
+            return text;
+
+
+        }
+        return text.toString();
+    }
+
+    public String MorseToText(String morse) throws IllegalAccessException {
+        return morseToText(morse);
+    }
 }
+
+
