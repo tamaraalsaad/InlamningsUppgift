@@ -67,7 +67,7 @@ public class MorseTranslator {
     }
 
 
-    public String morseToText(String morse) throws IllegalAccessException {
+    public String morseToText(String morse) throws IllegalArgumentException {
         if (morse == null || morse.trim().isEmpty()) {
             throw new IllegalArgumentException("Du måste skriva in minst ett morsetecken!");
 
@@ -94,7 +94,7 @@ public class MorseTranslator {
         return text.toString();
     }
 
-    public String MorseToText(String morse) throws IllegalAccessException {
+    public String MorseToText(String morse) throws  IllegalArgumentException{
         return morseToText(morse);
     }
 }
