@@ -2,7 +2,6 @@ package morse;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class MorseTranslator {
     private static final Map<Character, String> TEXT_To_MORSE = new HashMap<>();
@@ -94,7 +93,7 @@ public class MorseTranslator {
         return text.toString();
     }
 
-    public String MorseToText(String morse) throws  IllegalArgumentException{
+    public String MorseToText(String morse) throws IllegalArgumentException {
         return morseToText(morse);
     }
 }
