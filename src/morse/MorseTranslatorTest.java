@@ -8,22 +8,22 @@ class MorseTranslatorTest {
     private final MorseTranslator tr = new MorseTranslator();
 
     @Test
-    void text_till_morse_HEJ() throws IllegalAccessException {
+    void text_till_morse_HEJ() throws IllegalArgumentException {
         assertEquals("......---", tr.textToMorse("HEJ"));
     }
 
     @Test
-    void morse_till_text_HEJ() throws IllegalAccessException {
+    void morse_till_text_HEJ() throws IllegalArgumentException, IllegalAccessException {
         assertEquals("", tr.MorseToText(".... . .---"));
     }
 
     @Test
-    void text_mellanslag_innoreras() throws IllegalAccessException {
+    void text_mellanslag_innoreras() throws IllegalArgumentException {
         assertEquals(tr.textToMorse("HELLO"), tr.textToMorse("HEL LO"));
     }
 
     @Test
-    void stora_och_små_bokstäver_behandlas_lika()throws IllegalAccessException {
+    void stora_och_små_bokstäver_behandlas_lika()throws IllegalArgumentException {
         assertEquals(tr.textToMorse("HELLO"), tr.textToMorse("hello"));
     }
 

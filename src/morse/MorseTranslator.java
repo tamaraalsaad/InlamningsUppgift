@@ -43,23 +43,23 @@ public class MorseTranslator {
 
     }
 
-    public String textToMorse(String text) throws IllegalAccessException {
+    public String textToMorse(String text) throws IllegalArgumentException {
         if (text == null || text.isEmpty()) {
-            throw new IllegalAccessException("Du måste skriva in minst ett tecken!");
+            throw new IllegalArgumentException("Du måste skriva in minst ett tecken!");
         }
         text = text.toUpperCase();
-        String result="";
+        String result = "";
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
             if (c == ' ') continue;
             String code = TEXT_To_MORSE.get(c);
             if (code == null) {
-                throw new IllegalAccessException("Endast bokstäver A–Z är tillåtna!");
+                throw new IllegalArgumentException("Endast bokstäver A–Z är tillåtna!");
             }
 
 
-            if (! result.isEmpty())result+="";
-            result+=code;
+            if (!result.isEmpty()) result += "";
+            result += code;
 
         }
         return result;
