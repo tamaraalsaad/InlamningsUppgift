@@ -14,7 +14,7 @@ class MorseTranslatorTest {
 
     @Test
     void morse_till_text_HEJ() throws IllegalArgumentException {
-        assertEquals("", tr.MorseToText(".... . .---"));
+        assertEquals("HEJ", tr.MorseToText(".... . .---"));
     }
 
     @Test
