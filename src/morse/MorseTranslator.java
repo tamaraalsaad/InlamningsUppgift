@@ -86,11 +86,11 @@ public class MorseTranslator {
             if (letter == null) {
                 throw new IllegalArgumentException("Okäna morsekod" + code);
             }
-            return text;
+            text +=letter;
 
 
         }
-        return text.toString();
+        return text;
     }
 
     public String MorseToText(String morse) throws IllegalArgumentException {
